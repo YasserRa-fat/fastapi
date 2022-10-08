@@ -27,7 +27,7 @@ def get_posts(db: Session = Depends(get_db),
    # posts= db.query(models.Post).filter(models.Post.title.contains(search)).limit(limit).offset(skip).all()    
     results = db.query(models.Post, func.count(models.Vote.post_id).label("votes")).join(models.Vote, models.Vote.post_id==models.Post.id, 
      isouter = True).group_by(models.Post.id).filter(models.Post.title.contains(search)).limit(limit).offset(skip).all()
-    return results
+    return [results]
 
 
 @router.post('/', status_code= status.HTTP_201_CREATED, response_model=list[schemas.Post])
@@ -66,7 +66,7 @@ def get_post(id: int, db: Session = Depends(get_db),
                            detail= f"post with id {id} was not found")
    #     response.status_code = status.HTTP_404_NOT_FOUND
    #     return {'message':f"post with id {id} was not found"}
-    return post   
+    return [post]   
    
 
 @router.delete("/{id}", status_code= status.HTTP_204_NO_CONTENT)
