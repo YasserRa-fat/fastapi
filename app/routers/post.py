@@ -66,7 +66,7 @@ def get_post(id: int, db: Session = Depends(get_db),
                            detail= f"post with id {id} was not found")
    #     response.status_code = status.HTTP_404_NOT_FOUND
    #     return {'message':f"post with id {id} was not found"}
-    return [post]   
+    #return [post]   
    
 
 @router.delete("/{id}", status_code= status.HTTP_204_NO_CONTENT)
