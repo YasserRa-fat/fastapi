@@ -3,6 +3,7 @@ from fastapi import Depends, status, HTTPException, APIRouter
 from sqlalchemy.orm import Session
 from .. databases import  get_db
 from typing import List
+from fastapi.encoders import jsonable_encoder
 
 router = APIRouter(
     prefix= "/users", 
@@ -29,4 +30,4 @@ def get_user(id:int, db: Session = Depends(get_db)):
     if not user:
         raise HTTPException(status_code= status.HTTP_404_NOT_FOUND,
                             detail= f"user with id {id} not found")
-    return user    
+    return user  
