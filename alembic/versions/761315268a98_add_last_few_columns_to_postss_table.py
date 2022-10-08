@@ -1,4 +1,4 @@
-"""add last few columns to postss table
+"""add last few columns to posts table
 
 Revision ID: 761315268a98
 Revises: dd08d7b1f4b8
