@@ -1,3 +1,9 @@
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
 from fastapi import Depends, status, HTTPException
 from jose import JWTError, jwt
 
@@ -6,7 +12,7 @@ from typing import List
 from sqlalchemy.orm import Session
 from app import models, schemas, databases
 from fastapi.security import OAuth2PasswordBearer
-from config import settings
+from app.config import settings
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 SECRET_KEY = settings.secret_key
