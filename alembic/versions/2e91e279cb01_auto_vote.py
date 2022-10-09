@@ -25,8 +25,7 @@ def upgrade() -> None:
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('user_id', 'post_id')
     )
-    op.add_column('posts', sa.Column('owner_id', sa.Integer(), nullable=False))
-    op.create_foreign_key(None, 'posts', 'users', ['owner_id'], ['id'], ondelete='CASCADE')
+   
     # ### end Alembic commands ###
 
 
