@@ -5,9 +5,8 @@ on: [push, pull_request]
 jobs: 
   job1:
     runs-on: windows-latest
-    steps:
-      - name: puling git repo
+    steps: 
+      - name: pulling git repo
        uses: actions/checkout@v2
       - name: say hi to me
-      run: echo "hey man"
-      
+        run: echo "hey man"
