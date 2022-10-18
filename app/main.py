@@ -5,12 +5,10 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from app.databases import   engine
-from app import models, config
+from app.databases import  engine
 from passlib.context import CryptContext
 from fastapi import  FastAPI
 from app.routers import post, user, auth, vote
-import models 
 from fastapi.middleware.cors import CORSMiddleware
 
 

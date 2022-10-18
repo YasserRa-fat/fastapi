@@ -37,7 +37,8 @@ class Post(PostBase):
 class PostOut(PostBase):
      Post: Post
      votes:int
-     
+     class Config:
+          orm_mode = True         
      
        
     

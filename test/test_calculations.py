@@ -5,11 +5,11 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from app.calculations import add
+from fastapi.testclient import TestClient
+from app.main import app
 
-def test_add():
-    print("testing function")
-     
-    assert  add(1,2) == 3
+client = TestClient(app)
+
+
     
     
